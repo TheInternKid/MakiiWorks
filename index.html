@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Mark Gimarangan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: "#3b82f6",
+                50: "#eff6ff",
+                100: "#dbeafe",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+              },
+            },
+            animation: {
+              blob: "blob 7s infinite",
+              float: "float 6s ease-in-out infinite",
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+            keyframes: {
+              blob: {
+                "0%": { transform: "translate(0px, 0px) scale(1)" },
+                "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                "100%": { transform: "translate(0px, 0px) scale(1)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+  >
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass-effect">
+      <nav class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <a href="#" class="text-2xl font-bold gradient-text">Portfolio</a>
+
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#about"
+              class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+              >Contact</a
+            >
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <button
+              id="themeToggle"
+              class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+            >
+              <i class="fas fa-moon dark:hidden"></i>
+              <i class="fas fa-sun hidden dark:block"></i>
+            </button>
+            <a
+              href="#contact"
+              class="bg-gradient-to-r from-primary-500 to-purple-600 text-white px-6 py-2 rounded-full hover:from-primary-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Get in touch
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button id="mobileMenuBtn" class="md:hidden p-2">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+          <a
+            href="#about"
+            class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600"
+            >Projects</a
+          >
+          <a
+            href="#contact"
+            class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600"
+            >Contact</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="min-h-screen flex items-center justify-center relative section-bg-1 overflow-hidden"
+    >
+      <!-- Animated background shapes -->
+      <div
+        class="absolute top-20 left-10 w-72 h-72 blob-shape animate-blob"
+      ></div>
+      <div
+        class="absolute bottom-20 right-10 w-64 h-64 blob-shape animate-blob"
+        style="animation-delay: 2s"
+      ></div>
+
+      <div class="container mx-auto px-6 text-center relative z-10">
+        <div data-aos="fade-up">
+          <span
+            class="inline-block bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-pulse-slow"
+          >
+            Available for work
+          </span>
+          <h1 class="text-5xl md:text-7xl font-bold mb-6">
+            Hi, I'm <span class="gradient-text">Mark Gimarangan</span>
+          </h1>
+          <p
+            class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
+          >
+            I'm a full-stack developer specializing in building exceptional
+            digital experiences.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#projects"
+              class="bg-gradient-to-r from-primary-500 to-purple-600 text-white px-8 py-4 rounded-full hover:from-primary-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              View my work <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <a
+              href="#contact"
+              class="border-2 border-primary-500 text-primary-600 dark:text-primary-400 px-8 py-4 rounded-full hover:bg-primary-500 hover:text-white transition-all duration-300"
+            >
+              Contact me
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <div class="flex flex-col items-center">
+          <span class="text-sm text-gray-500 mb-2">Scroll down</span>
+          <div
+            class="w-6 h-10 border-2 border-primary-400 rounded-full flex justify-center"
+          >
+            <div
+              class="w-1 h-3 bg-primary-400 rounded-full mt-2 animate-pulse"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 section-bg-2">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+          <span class="gradient-text">About Me</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div data-aos="fade-right">
+            <div class="relative group">
+              <div
+                class="absolute -inset-1 bg-gradient-to-r from-primary-500 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"
+              ></div>
+              <img
+                src="images/myprofile.jpg"
+                alt="Profile"
+                class="relative rounded-lg shadow-lg w-full max-w-md mx-auto transition-transform group-hover:scale-105"
+              />
+            </div>
+          </div>
+          <div data-aos="fade-left" data-aos-delay="200">
+            <h3 class="text-2xl font-semibold mb-4 gradient-text">
+              Passionate Developer
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+              I'm a passionate developer with a strong foundation in web
+              technologies and a keen eye for design. With several years of
+              experience in the industry, I've worked on a variety of projects
+              ranging from small business websites to complex web applications.
+            </p>
+            <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+              My approach to development focuses on creating clean, efficient,
+              and user-friendly solutions that not only meet but exceed client
+              expectations. I'm constantly learning and adapting to new
+              technologies to ensure I deliver the best possible results.
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center border-2 border-primary-500 text-primary-600 dark:text-primary-400 px-6 py-3 rounded-full hover:bg-primary-500 hover:text-white transition-all duration-300"
+            >
+              Download Resume <i class="fas fa-download ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 section-bg-3">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+          <span class="gradient-text">My Skills</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg card-hover"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="text-primary-500 text-3xl mb-4">
+              <i class="fab fa-react"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 gradient-text">Frontend</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> React
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Next.js
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> HTML/CSS
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> JavaScript
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> TypeScript
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg card-hover"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="text-primary-500 text-3xl mb-4">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 gradient-text">Backend</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Node.js
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Express
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Python
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Django
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> API
+                Development
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg card-hover"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="text-primary-500 text-3xl mb-4">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 gradient-text">Database</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> MongoDB
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> PostgreSQL
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> MySQL
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Firebase
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Prisma
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg card-hover"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="text-primary-500 text-3xl mb-4">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 gradient-text">Tools</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Git
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Docker
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> AWS
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Vercel
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-primary-500 mr-2"></i> Figma
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 section-bg-4">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+          <span class="gradient-text">Featured Projects</span>
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden card-hover"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop"
+              alt="E-commerce Platform"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 gradient-text">
+                E-commerce Platform
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                A full-featured online store with payment processing, user
+                authentication, and inventory management.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm"
+                  >Next.js</span
+                >
+                <span
+                  class="bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm"
+                  >Stripe</span
+                >
+                <span
+                  class="bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm"
+                  >Tailwind CSS</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="flex-1 text-center border-2 border-primary-500 text-primary-600 dark:text-primary-400 py-2 rounded-lg hover:bg-primary-500 hover:text-white transition-all duration-300"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i>Demo
+                </a>
+                <a
+                  href="#"
+                  class="flex-1 text-center bg-gradient-to-r from-primary-500 to-purple-600 text-white py-2 rounded-lg hover:from-primary-600 hover:to-purple-700 transition-all duration-300"
+                >
+                  <i class="fab fa-github mr-2"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden card-hover"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop"
+              alt="Task Management App"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 gradient-text">
+                Task Management App
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                A collaborative task management tool with real-time updates,
+                file sharing, and team communication features.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm"
+                  >React</span
+                >
+                <span
+                  class="bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm"
+                  >Firebase</span
+                >
+                <span
+                  class="bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm"
+                  >Material UI</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="flex-1 text-center border-2 border-primary-500 text-primary-600 dark:text-primary-400 py-2 rounded-lg hover:bg-primary-500 hover:text-white transition-all duration-300"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i>Demo
+                </a>
+                <a
+                  href="#"
+                  class="flex-1 text-center bg-gradient-to-r from-primary-500 to-purple-600 text-white py-2 rounded-lg hover:from-primary-600 hover:to-purple-700 transition-all duration-300"
+                >
+                  <i class="fab fa-github mr-2"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden card-hover"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=250&fit=crop"
+              alt="Portfolio Website"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 gradient-text">
+                Portfolio Website
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                A responsive portfolio website showcasing projects and skills
+                with a modern design.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm"
+                  >HTML</span
+                >
+                <span
+                  class="bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm"
+                  >Tailwind CSS</span
+                >
+                <span
+                  class="bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="flex-1 text-center border-2 border-primary-500 text-primary-600 dark:text-primary-400 py-2 rounded-lg hover:bg-primary-500 hover:text-white transition-all duration-300"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i>Demo
+                </a>
+                <a
+                  href="#"
+                  class="flex-1 text-center bg-gradient-to-r from-primary-500 to-purple-600 text-white py-2 rounded-lg hover:from-primary-600 hover:to-purple-700 transition-all duration-300"
+                >
+                  <i class="fab fa-github mr-2"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 section-bg-1">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+          <span class="gradient-text">Get In Touch</span>
+        </h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-12">
+            <div data-aos="fade-right">
+              <h3 class="text-2xl font-semibold mb-6 gradient-text">
+                Contact Information
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                Feel free to reach out if you're looking for a developer, have a
+                question, or just want to connect.
+              </p>
+              <div class="space-y-6">
+                <a
+                  href="mailto:your.email@example.com"
+                  class="flex items-center text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group"
+                >
+                  <i class="fas fa-envelope text-primary-500 mr-4 text-xl"></i>
+                  <span class="group-hover:underline"
+                    >gimarangan9928@gmail.com</span
+                  >
+                </a>
+                <a
+                  href="https://github.com/yourusername"
+                  class="flex items-center text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group"
+                >
+                  <i class="fab fa-github text-primary-500 mr-4 text-xl"></i>
+                  <span class="group-hover:underline"
+                    >github.com/yourusername</span
+                  >
+                </a>
+                <a
+                  href="https://linkedin.com/in/yourusername"
+                  class="flex items-center text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group"
+                >
+                  <i class="fab fa-linkedin text-primary-500 mr-4 text-xl"></i>
+                  <span class="group-hover:underline"
+                    >linkedin.com/in/yourusername</span
+                  >
+                </a>
+              </div>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="200">
+              <form
+                id="contactForm"
+                class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
+              >
+                <div class="mb-6">
+                  <label
+                    for="name"
+                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >Your Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >Your Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label
+                    for="message"
+                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >Your Message</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors resize-none"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-gradient-to-r from-primary-500 to-purple-600 text-white py-3 rounded-lg hover:from-primary-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  <span id="submitText">Send Message</span>
+                  <i id="submitIcon" class="fas fa-paper-plane ml-2"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 mb-4 md:mb-0">
+            © <span id="current-year">2024</span> Mark Gimarangan. All rights
+            reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a
+              href="https://github.com/yourusername"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/yourusername"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a
+              href="mailto:your.email@example.com"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <i class="fas fa-envelope text-xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="backToTop"
+      class="fixed bottom-8 right-8 bg-gradient-to-r from-primary-500 to-purple-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 opacity-0 invisible"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+        offset: 100,
+      });
+
+      // Theme Toggle
+      const themeToggle = document.getElementById("themeToggle");
+      const html = document.documentElement;
+
+      // Check for saved theme preference or default to light mode
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        html.classList.add("dark");
+      }
+
+      themeToggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const theme = html.classList.contains("dark") ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Scroll Progress Indicator
+      const scrollIndicator = document.getElementById("scrollIndicator");
+
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.offsetHeight - window.innerHeight;
+        const scrollPercent = scrollTop / docHeight;
+        scrollIndicator.style.transform = `scaleX(${scrollPercent})`;
+      });
+
+      // Back to Top Button
+      const backToTop = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.remove("opacity-0", "invisible");
+          backToTop.classList.add("opacity-100", "visible");
+        } else {
+          backToTop.classList.add("opacity-0", "invisible");
+          backToTop.classList.remove("opacity-100", "visible");
+        }
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Active Navigation Link
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sections = document.querySelectorAll("section[id]");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // Contact Form
+      const contactForm = document.getElementById("contactForm");
+      const submitText = document.getElementById("submitText");
+      const submitIcon = document.getElementById("submitIcon");
+
+      contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Change button state
+        submitText.textContent = "Sending...";
+        submitIcon.className = "fas fa-spinner fa-spin ml-2";
+
+        // Simulate form submission
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        // Reset form
+        contactForm.reset();
+
+        // Reset button state
+        submitText.textContent = "Message Sent!";
+        submitIcon.className = "fas fa-check ml-2";
+
+        // Reset after 3 seconds
+        setTimeout(() => {
+          submitText.textContent = "Send Message";
+          submitIcon.className = "fas fa-paper-plane ml-2";
+        }, 3000);
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add typing effect to hero text
+      const heroText = document.querySelector(".gradient-text");
+      if (heroText) {
+        const text = heroText.textContent;
+        heroText.textContent = "";
+        let i = 0;
+
+        function typeWriter() {
+          if (i < text.length) {
+            heroText.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+          }
+        }
+
+        // Start typing effect after page load
+        setTimeout(typeWriter, 1000);
+      }
+
+      // Parallax effect for background shapes
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll(".blob-shape");
+
+        parallaxElements.forEach((element, index) => {
+          const speed = 0.5 + index * 0.1;
+          const yPos = -(scrolled * speed);
+          element.style.transform = `translateY(${yPos}px)`;
+        });
+      });
+
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
